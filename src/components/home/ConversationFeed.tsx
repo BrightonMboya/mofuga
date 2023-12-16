@@ -3,6 +3,7 @@ import { MessagePreview } from "./MessagePreview";
 const data = [
   {
     name: "John Doe",
+    id: "1",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
     submittedAt: "2023-01-01T08:00:00",
@@ -11,6 +12,7 @@ const data = [
   },
   {
     name: "Alice Smith",
+    id: "2",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8g",
     submittedAt: "2023-01-02T12:30:00",
@@ -19,6 +21,7 @@ const data = [
   },
   {
     name: "Bob Johnson",
+    id: "3",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
     submittedAt: "2023-01-03T15:45:00",
@@ -27,6 +30,7 @@ const data = [
   },
   {
     name: "Eva Davis",
+    id: "4",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
     submittedAt: "2023-01-04T10:15:00",
@@ -35,6 +39,7 @@ const data = [
   },
   {
     name: "Charlie Brown",
+    id: "5",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
     submittedAt: "2023-01-05T09:20:00",
@@ -43,6 +48,7 @@ const data = [
   },
   {
     name: "Grace Miller",
+    id: "6",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
     submittedAt: "2023-01-06T18:00:00",
@@ -51,6 +57,7 @@ const data = [
   },
   {
     name: "Sam Wilson",
+    id: "7",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
     submittedAt: "2023-01-07T14:10:00",
@@ -61,9 +68,11 @@ const data = [
 
 export default function ConversationFeed() {
   return (
-    <div className="space-y-5 overflow-clip max-w-[380px]">
+    <div className="max-w-[380px] space-y-5 overflow-clip">
       {data.map((item) => (
         <MessagePreview
+          key={item.id}
+          id={item.id}
           name={item.name}
           imageUrl={item.imageUrl}
           submittedAt={item.submittedAt}

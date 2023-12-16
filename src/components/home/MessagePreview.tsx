@@ -1,4 +1,5 @@
 import Avatar from "./Avatar";
+import Link from "next/link";
 
 interface MessagePreviewProps {
   name: string;
@@ -6,23 +7,27 @@ interface MessagePreviewProps {
   submittedAt: string;
   body: string;
   sender: string;
+  id: string;
 }
 
 export function MessagePreview({
   name,
   imageUrl,
   submittedAt,
+  id,
   body,
   sender,
 }: MessagePreviewProps) {
   return (
-    <div className="flex relative items-center space-x-4 hover:bg-blue-50">
-      <Avatar imageUrl={imageUrl} />
-      <div>
-        <h3>{sender}</h3>
-        <p>{body}</p>
+    <Link href={`/chat/${id}`}>
+      <div className="relative flex cursor-pointer items-center space-x-4 hover:bg-blue-50">
+        <Avatar imageUrl={imageUrl} />
+        <div>
+          <h3>{sender}</h3>
+          <p>{body}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

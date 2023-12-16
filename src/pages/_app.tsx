@@ -1,6 +1,7 @@
 import { type AppType } from "next/dist/shared/lib/utils";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import Layout from "~/components/ui/Layout";
 import localFont from "next/font/local";
 
 // const geist = localFont({
@@ -20,9 +21,11 @@ import "~/styles/globals.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <main className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <Component {...pageProps} />
-    </main>
+    <Layout>
+      <main className={`${GeistSans.variable} ${GeistMono.variable}`}>
+        <Component {...pageProps} />
+      </main>
+    </Layout>
   );
 };
 
