@@ -17,6 +17,10 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  transpilePackages: ["geist"],
+  images: {
+    domains: ["images.unsplash.com"],
+  },
 };
 
 export default config;
