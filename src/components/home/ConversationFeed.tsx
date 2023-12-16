@@ -1,5 +1,6 @@
 import { MessagePreview } from "./MessagePreview";
-
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/Tabs";
+import Input from "../ui/Input";
 const data = [
   {
     name: "John Doe",
@@ -66,9 +67,9 @@ const data = [
   },
 ];
 
-export default function ConversationFeed() {
+export function Conversation() {
   return (
-    <div className="max-w-[380px] space-y-5 overflow-clip">
+    <div className="flex max-w-[380px] flex-col space-y-5 overflow-clip">
       {data.map((item) => (
         <MessagePreview
           key={item.id}
@@ -81,5 +82,32 @@ export default function ConversationFeed() {
         />
       ))}
     </div>
+  );
+}
+
+export default function ConversationFeed() {
+  return (
+    <section>
+      <Input
+      type="search"
+      placeholder="Search Conversation"
+      />
+      <Tabs defaultValue="account" className="mt-10 w-[400px]">
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="all">All Conversations</TabsTrigger>
+          <TabsTrigger value="pending">Pending</TabsTrigger>
+          <TabsTrigger value="resolved">Resolved</TabsTrigger>
+        </TabsList>
+        <TabsContent value="all">
+          <Conversation />
+        </TabsContent>
+        <TabsContent value="pending">
+          <Conversation />
+        </TabsContent>
+        <TabsContent value="resolved">
+          <Conversation />
+        </TabsContent>
+      </Tabs>
+    </section>
   );
 }
