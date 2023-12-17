@@ -1,6 +1,10 @@
 import { MessagePreview } from "./MessagePreview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/Tabs";
 import Input from "../ui/Input";
+import { Command, CommandInput } from "../ui/Command";
+import PendingFeed from "./PendingFeed";
+import ResolvedFeed from "./ResolvedFeed";
+import { useState } from "react";
 const data = [
   {
     name: "John Doe",
@@ -85,29 +89,59 @@ export function Conversation() {
   );
 }
 
-export default function ConversationFeed() {
+export default function () {
+  const [showAllConversation, setShowAllConversation] = useState(true);
+  const [showPending, setShowPending] = useState(false);
+  const [showResolved, setShowResolved] = useState(false);
+
+  const baseTabStyle = "pb-2 text-grey font-medium";
+  const highlightedTabStyle =
+    "text-blue font-medium border-b-[1px] border-b-blue pb-2";
+
   return (
-    <section>
+    <section className="border-[1px] h-screen pt-5 px-4 border-grey">
       <Input
-      type="search"
-      placeholder="Search Conversation"
+      placeholder="Search Conversation ..."
       />
-      <Tabs defaultValue="account" className="mt-10 w-[400px]">
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="all">All Conversations</TabsTrigger>
-          <TabsTrigger value="pending">Pending</TabsTrigger>
-          <TabsTrigger value="resolved">Resolved</TabsTrigger>
-        </TabsList>
-        <TabsContent value="all">
-          <Conversation />
-        </TabsContent>
-        <TabsContent value="pending">
-          <Conversation />
-        </TabsContent>
-        <TabsContent value="resolved">
-          <Conversation />
-        </TabsContent>
-      </Tabs>
+      <section className="flex space-x-4 pt-5">
+        <button
+          className={showAllConversation ? highlightedTabStyle : baseTabStyle}
+          onClick={() => {
+            setShowAllConversation(true);
+            setShowPending(false);
+            setShowResolved(false);
+          }}
+        >
+          All Conversation
+        </button>
+        <button
+          className={showPending ? highlightedTabStyle : baseTabStyle}
+          onClick={() => {
+            setShowAllConversation(false);
+            setShowPending(true);
+            setShowResolved(false);
+          }}
+        >
+          Pending
+        </button>
+        <button
+          className={showResolved ? highlightedTabStyle : baseTabStyle}
+          onClick={() => {
+            setShowAllConversation(false);
+            setShowPending(false);
+            setShowResolved(true);
+          }}
+        >
+          Resolved
+        </button>
+      </section>
+
+      <div className="mt-5">
+        {showAllConversation && <Conversation />}
+        {showPending && <PendingFeed />}
+        {showResolved && <ResolvedFeed />}
+      </div>
     </section>
   );
 }
+

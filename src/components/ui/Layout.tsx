@@ -9,7 +9,7 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <section className={GeistSans.className}>
-      <div className="flex space-x-5">
+      <div className="flex space-x-5 ">
         <SideBar />
         <ConversationFeed />
         <main className="">{children}</main>
