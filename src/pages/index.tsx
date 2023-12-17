@@ -9,8 +9,8 @@ export default function Home() {
         <meta name="description" content="Build with Love by Brighton Mboya" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-       
+      <main className="text-[20px]">
+        <h3>Hello World This is the home page</h3>
       </main>
     </>
   );

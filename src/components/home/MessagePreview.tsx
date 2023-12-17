@@ -20,11 +20,16 @@ export function MessagePreview({
 }: MessagePreviewProps) {
   return (
     <Link href={`/chat/${id}`}>
-      <div className="relative flex cursor-pointer items-center space-x-4 hover:bg-blue-50">
+      <div className="hover:bg-blue/20 rounded-md p-2 relative flex cursor-pointer items-center space-x-4">
         <Avatar imageUrl={imageUrl} />
-        <div>
-          <h3>{sender}</h3>
-          <p>{body}</p>
+        <div className="flex flex-col">
+          <div className="">
+            <h3 className="font-medium">{sender}</h3>
+            <p className="text-[##928D8D] absolute right-5 top-3">
+              {submittedAt}
+            </p>
+          </div>
+          <p className="text-brown">{body}</p>
         </div>
       </div>
     </Link>

@@ -12,6 +12,7 @@ export default {
       colors: {
         blue: "#089CF0",
         grey: "#B6B6B6",
+        brown: "#715858",
       },
     },
   },

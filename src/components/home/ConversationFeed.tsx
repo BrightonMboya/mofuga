@@ -1,7 +1,5 @@
 import { MessagePreview } from "./MessagePreview";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/Tabs";
 import Input from "../ui/Input";
-import { Command, CommandInput } from "../ui/Command";
 import PendingFeed from "./PendingFeed";
 import ResolvedFeed from "./ResolvedFeed";
 import { useState } from "react";
@@ -11,7 +9,7 @@ const data = [
     id: "1",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
-    submittedAt: "2023-01-01T08:00:00",
+    submittedAt: "7:15",
     body: "Hey, how's it going?",
     sender: "JohnDoe123",
   },
@@ -20,7 +18,7 @@ const data = [
     id: "2",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8g",
-    submittedAt: "2023-01-02T12:30:00",
+    submittedAt: "12:00",
     body: "I'm doing well, thanks! How about you?",
     sender: "WonderAlice",
   },
@@ -29,7 +27,7 @@ const data = [
     id: "3",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
-    submittedAt: "2023-01-03T15:45:00",
+    submittedAt: "23:59",
     body: "Any plans for the weekend?",
     sender: "BobJ88",
   },
@@ -38,7 +36,7 @@ const data = [
     id: "4",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
-    submittedAt: "2023-01-04T10:15:00",
+    submittedAt: "15:00",
     body: "Not sure yet, maybe just relaxing at home.",
     sender: "EvaD",
   },
@@ -47,7 +45,7 @@ const data = [
     id: "5",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
-    submittedAt: "2023-01-05T09:20:00",
+    submittedAt: "14:33",
     body: "Good morning! How's everyone doing today?",
     sender: "CBrown",
   },
@@ -56,7 +54,7 @@ const data = [
     id: "6",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
-    submittedAt: "2023-01-06T18:00:00",
+    submittedAt: "12:33",
     body: "Excited for the upcoming project deadline!",
     sender: "Graceful",
   },
@@ -65,7 +63,7 @@ const data = [
     id: "7",
     imageUrl:
       "https://images.unsplash.com/photo-1702611120121-e03dafc14150?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
-    submittedAt: "2023-01-07T14:10:00",
+    submittedAt: "11:00",
     body: "Just got back from a great vacation!",
     sender: "AdventureSam",
   },
