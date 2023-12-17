@@ -3,6 +3,8 @@ import Input from "../ui/Input";
 import PendingFeed from "./PendingFeed";
 import ResolvedFeed from "./ResolvedFeed";
 import { useState } from "react";
+import { ChatBubbleIcon } from "@radix-ui/react-icons";
+
 const data = [
   {
     name: "John Doe",
@@ -92,26 +94,29 @@ export default function () {
   const [showPending, setShowPending] = useState(false);
   const [showResolved, setShowResolved] = useState(false);
 
-  const baseTabStyle = "pb-2 text-grey font-medium";
+  const baseTabStyle = "pb-2 text-grey font-medium flex items-center gap-2";
   const highlightedTabStyle =
-    "text-blue font-medium border-b-[1px] border-b-blue pb-2";
+    "text-blue font-medium border-b-[1px] border-b-blue pb-2 flex items-center gap-2";
 
   return (
-    <section className="border-[1px] h-screen pt-5 px-4 border-grey">
-      <Input
-      placeholder="Search Conversation ..."
-      />
+    <section className="border-grey h-screen border-[1px] px-4 pt-5">
+      <Input placeholder="Search Conversation ..." />
       <section className="flex space-x-4 pt-5">
-        <button
+        <div
           className={showAllConversation ? highlightedTabStyle : baseTabStyle}
-          onClick={() => {
-            setShowAllConversation(true);
-            setShowPending(false);
-            setShowResolved(false);
-          }}
         >
-          All Conversation
-        </button>
+          <ChatBubbleIcon />
+          <button
+            // className={showAllConversation ? highlightedTabStyle : baseTabStyle}
+            onClick={() => {
+              setShowAllConversation(true);
+              setShowPending(false);
+              setShowResolved(false);
+            }}
+          >
+            All Conversation
+          </button>
+        </div>
         <button
           className={showPending ? highlightedTabStyle : baseTabStyle}
           onClick={() => {
@@ -142,4 +147,3 @@ export default function () {
     </section>
   );
 }
-
